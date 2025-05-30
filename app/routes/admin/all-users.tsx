@@ -1,7 +1,10 @@
-import React from 'react'
+import Header from '~/components/Header'
 
-export default function allUsers() {
+export default function AllUsers() {
   return (
-    <div>all-users</div>
+    <main className="wrapper">
+         <Header title='Página de viagens' description="Acompanhe nossos usuários  em tempo real!"/>
+          all User page
+    </main>
   )
 }
