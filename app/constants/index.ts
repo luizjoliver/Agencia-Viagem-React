@@ -11,13 +11,13 @@ export const sidebarItems = [
   {
     id: 3,
     icon: "/assets/icons/users.svg",
-    label: "All Users",
+    label: "Usuários",
     href: "/users",
   },
   {
     id: 4,
     icon: "/assets/icons/itinerary.svg",
-    label: "AI Trips",
+    label: "AI Viagens",
     href: "/trips",
   },
 ];

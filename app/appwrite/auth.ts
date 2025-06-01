@@ -90,6 +90,7 @@ export const getGooglePicture = async () => {
 export const logoutUser = async () => {
     try {
         await account.deleteSession("current");
+        return true 
     } catch (error) {
         console.log("LogOut usuário: " + error);
 
