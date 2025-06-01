@@ -1,3 +1,11 @@
+export type UserType = {
+    accountId: string
+    email: string
+    imageUrl: string
+    joinedAt: string
+    name: string
+}
+
 export type dashboardStats = {
     totalUsers: number;
     usersJoined: {

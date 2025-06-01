@@ -1,13 +1,17 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLoaderData, useNavigate } from "react-router";
+import { logoutUser } from "~/appwrite/auth";
 import { sidebarItems } from "~/constants";
 import { cn } from "~/lib/utils";
 
 export function NavItems({ handleClick }: { handleClick?: () => void }) {
-  const mockUser = {
-    name: "Luiz",
-    email: "luiz@gmail.com",
-    imageUrl: "/assets/images/david.webp",
-  };
+
+  const user = useLoaderData()
+  const navigate = useNavigate()
+
+  async function handleLogOut(){
+    await logoutUser()
+    navigate('/sign-in')
+  }
 
   return (
     <section className="nav-items">
@@ -43,19 +47,18 @@ export function NavItems({ handleClick }: { handleClick?: () => void }) {
 
         <footer className="nav-footer">
           <img
-            src={mockUser?.imageUrl || "/assets/images/david.webp"}
-            alt={mockUser?.name || "David"}
+            src={user?.imageUrl || "/assets/images/david.webp"}
+            alt={user?.name || "David"}
+            referrerPolicy="no-referrer"
           />
 
           <article>
-            <h2>{mockUser?.name}</h2>
-            <p>{mockUser?.email}</p>
+            <h2>{user?.name}</h2>
+            <p>{user?.email}</p>
           </article>
 
           <button
-            onClick={() => {
-              console.log("logout");
-            }}
+            onClick={handleLogOut}
             className="cursor-pointer"
           >
             <img
